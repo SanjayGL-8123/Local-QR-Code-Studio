@@ -1,4 +1,4 @@
-# SPVM3 Local QR Code Studio · Advanced Designer
+#Local QR Code Studio · Advanced Designer
 
 An advanced, feature-rich offline QR code design studio with a web interface. It runs completely on your local computer, requires zero internet access, and offers professional-grade templates, festive occasion frames, custom shapes, gradients, and brand logos.
 
@@ -85,7 +85,7 @@ Interactive accordion selector with customizable text, frame color, and text col
 1. Double-click `build_windows.bat`.
 2. The script detects Python, installs PyInstaller, packages the templates, and produces:
    ```
-   dist\SPVM3LocalQRStudio.exe
+   dist\LocalQRStudio.exe
    ```
 3. Run `SPVM3LocalQRStudio.exe` directly on any Windows PC without needing Python installed!
 
