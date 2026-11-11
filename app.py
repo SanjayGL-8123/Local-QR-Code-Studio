@@ -155,6 +155,10 @@ def make_qr_image(
 def home():
     return render_template("index.html")
 
+@app.route("/favicon.ico")
+def favicon():
+    return ("", 204)
+
 @app.route("/generate", methods=["POST"])
 def generate():
     payload = request.get_json(silent=True) or {}
@@ -205,5 +209,5 @@ def open_browser(port):
 if __name__ == "__main__":
     port = find_port()
     threading.Timer(1.0, open_browser, args=(port,)).start()
-    print(f"SPVM3 Local QR Code Studio running at http://127.0.0.1:{port}/")
+    print(f"Local QR Code Studio running at http://127.0.0.1:{port}/")
     app.run(host="127.0.0.1", port=port, debug=False, use_reloader=False)

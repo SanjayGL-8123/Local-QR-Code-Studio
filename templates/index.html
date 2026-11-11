@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SPVM3 Local QR Code Studio · Advanced Designer</title>
+  <title>Local QR Code Studio · Advanced Designer</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -195,7 +195,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-    label {
+    label, .label-heading {
       display: block;
       font-size: 0.82rem;
       font-weight: 650;
@@ -734,10 +734,10 @@
   <!-- Top Navigation Bar -->
   <header>
     <div class="brand">
-      <div class="brand-logo">SP</div>
+      <div class="brand-logo">QR</div>
       <div>
         <div style="display:flex; align-items:center; gap:8px;">
-          <span class="brand-title">SPVM3 Local QR Code Studio</span>
+          <span class="brand-title">Local QR Code Studio</span>
           <span class="brand-badge">Offline Local App</span>
         </div>
       </div>
@@ -812,7 +812,7 @@
               <input type="text" id="wifiPass" placeholder="Enter Wi-Fi password">
             </div>
             <div class="form-group" style="display:flex; align-items:flex-end; padding-bottom:8px;">
-              <label class="checkbox-wrap">
+              <label class="checkbox-wrap" for="wifiHidden">
                 <input type="checkbox" id="wifiHidden"> Hidden Network SSID
               </label>
             </div>
@@ -942,7 +942,7 @@
               <input type="text" id="frameTextInput" value="SCAN ME" maxlength="28" placeholder="e.g. SCAN ME, HAPPY NEW YEAR">
             </div>
             <div class="form-group">
-              <label>Frame Color & Text Color</label>
+              <span class="label-heading">Frame Color & Text Color</span>
               <div style="display:flex; gap:10px;">
                 <div class="color-input-wrap" title="Frame Color">
                   <input type="color" id="frameColorInput" value="#4f46e5">
@@ -972,20 +972,20 @@
         <div class="form-row">
           <!-- Foreground Color / Gradient -->
           <div>
-            <label>QR Code Pattern Color</label>
+            <label for="qrColor1">QR Code Pattern Color</label>
             <div class="color-picker-row">
               <div class="color-input-wrap">
                 <input type="color" id="qrColor1" value="#0f172a">
                 <input type="text" class="color-hex" id="qrColor1Hex" value="#0f172a">
               </div>
-              <label class="checkbox-wrap" style="font-size:0.78rem;">
+              <label class="checkbox-wrap" for="gradientToggle" style="font-size:0.78rem;">
                 <input type="checkbox" id="gradientToggle"> Use Gradient
               </label>
             </div>
 
             <!-- Gradient Second Color -->
             <div id="gradientRow" style="display:none; margin-bottom:12px;">
-              <label>Gradient Secondary Color</label>
+              <label for="qrColor2">Gradient Secondary Color</label>
               <div class="color-picker-row">
                 <div class="color-input-wrap">
                   <input type="color" id="qrColor2" value="#4f46e5">
@@ -999,7 +999,7 @@
             </div>
 
             <!-- Quick Palettes -->
-            <label style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Curated Color Palettes</label>
+            <span class="label-heading" style="font-size:0.75rem; color:var(--muted); margin-top:6px;">Curated Color Palettes</span>
             <div class="palette-chips">
               <span class="palette-chip" style="background:#0f172a;" data-c1="#0f172a" data-c2="#334155" title="Classic Slate"></span>
               <span class="palette-chip" style="background:#4f46e5;" data-c1="#4f46e5" data-c2="#7c3aed" title="Electric Indigo"></span>
@@ -1015,21 +1015,21 @@
 
           <!-- Background Color -->
           <div>
-            <label>Background Color</label>
+            <label for="bgColor">Background Color</label>
             <div class="color-picker-row">
               <div class="color-input-wrap">
                 <input type="color" id="bgColor" value="#ffffff">
                 <input type="text" class="color-hex" id="bgColorHex" value="#ffffff">
               </div>
-              <label class="checkbox-wrap" style="font-size:0.78rem;">
+              <label class="checkbox-wrap" for="transparentBg" style="font-size:0.78rem;">
                 <input type="checkbox" id="transparentBg"> Transparent
               </label>
             </div>
 
             <!-- Eye Colors Customization -->
-            <label style="margin-top:14px;">Corner Eye Colors</label>
+            <span class="label-heading" style="margin-top:14px;">Corner Eye Colors</span>
             <div style="margin-top:4px;">
-              <label class="checkbox-wrap" style="font-size:0.78rem; margin-bottom:8px;">
+              <label class="checkbox-wrap" for="customEyeColorToggle" style="font-size:0.78rem; margin-bottom:8px;">
                 <input type="checkbox" id="customEyeColorToggle"> Custom Eye Colors
               </label>
               <div id="eyeColorRow" style="display:none; gap:10px;">
@@ -1054,7 +1054,7 @@
         </div>
 
         <!-- Body Dots Pattern -->
-        <label>Body Module Pattern</label>
+        <span class="label-heading">Body Module Pattern</span>
         <div class="options-grid" id="dotStyleOptions" style="margin-bottom:18px;">
           <div class="option-card active" data-value="square">
             <div class="option-icon">■</div>
@@ -1081,7 +1081,7 @@
         <div class="form-row">
           <!-- Outer Eye Shape -->
           <div>
-            <label>Outer Corner Frame</label>
+            <span class="label-heading">Outer Corner Frame</span>
             <div class="options-grid" id="eyeFrameOptions">
               <div class="option-card active" data-value="square">
                 <div class="option-title">Square</div>
@@ -1100,7 +1100,7 @@
 
           <!-- Inner Eye Ball Shape -->
           <div>
-            <label>Inner Eye Ball</label>
+            <span class="label-heading">Inner Eye Ball</span>
             <div class="options-grid" id="eyeBallOptions">
               <div class="option-card active" data-value="square">
                 <div class="option-title">Square</div>
@@ -1147,7 +1147,7 @@
         </div>
 
         <!-- Custom Upload Area -->
-        <label class="upload-box" id="uploadBox">
+        <label class="upload-box" id="uploadBox" for="logoFileInput">
           <input type="file" id="logoFileInput" accept="image/png, image/jpeg, image/svg+xml, image/webp">
           <div style="font-size:1.3rem; margin-bottom:4px;">📤</div>
           <div style="font-size:0.85rem; font-weight:700; color:var(--ink);">Click to upload custom logo</div>
@@ -1158,14 +1158,14 @@
         <div id="logoControls" style="display:none; margin-top:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px;">
           <div class="form-row">
             <div>
-              <label>Logo Size</label>
+              <label for="logoSizeSlider">Logo Size</label>
               <div class="slider-wrap">
                 <input type="range" id="logoSizeSlider" min="15" max="32" value="22">
                 <span class="slider-val" id="logoSizeVal">22%</span>
               </div>
             </div>
             <div style="display:flex; align-items:center;">
-              <label class="checkbox-wrap">
+              <label class="checkbox-wrap" for="logoBgToggle">
                 <input type="checkbox" id="logoBgToggle" checked> Remove background / White badge
               </label>
             </div>
@@ -1234,7 +1234,7 @@
   <canvas id="exportCanvas" style="display:none;"></canvas>
 
   <footer>
-    SPVM3 Local QR Code Studio · High Resolution & Festive Templates · 100% Offline on Localhost
+    Local QR Code Studio · High Resolution & Festive Templates · 100% Offline on Localhost
   </footer>
 
   <!-- Scripts -->
@@ -1323,18 +1323,7 @@
       };
 
       const QRRSBlock = {
-        RS_BLOCK_TABLE: [
-          [1, 26, 19], [1, 26, 16], [1, 26, 13], [1, 26, 9],
-          [1, 44, 34], [1, 44, 28], [1, 44, 22], [1, 44, 16],
-          [1, 70, 55], [1, 70, 44], [2, 35, 17], [2, 35, 13],
-          [1, 100, 80], [2, 50, 32], [2, 50, 24], [4, 25, 9],
-          [1, 134, 108], [2, 67, 43], [2, 33, 15, 2, 34, 16], [2, 33, 11, 2, 34, 12],
-          [2, 86, 68], [4, 43, 27], [4, 43, 19], [4, 43, 15],
-          [2, 98, 78], [4, 49, 31], [2, 32, 14, 4, 33, 15], [4, 39, 13, 1, 40, 14],
-          [2, 121, 97], [2, 60, 38, 2, 61, 39], [4, 40, 18, 2, 41, 19], [4, 40, 14, 2, 41, 15],
-          [2, 146, 116], [3, 58, 36, 2, 59, 37], [4, 36, 16, 4, 37, 17], [4, 36, 12, 4, 37, 13],
-          [2, 86, 68, 2, 87, 69], [4, 69, 43, 1, 70, 44], [6, 43, 19, 2, 44, 20], [6, 43, 15, 2, 44, 16]
-        ],
+        RS_BLOCK_TABLE: [[1, 26, 19], [1, 26, 16], [1, 26, 13], [1, 26, 9], [1, 44, 34], [1, 44, 28], [1, 44, 22], [1, 44, 16], [1, 70, 55], [1, 70, 44], [2, 35, 17], [2, 35, 13], [1, 100, 80], [2, 50, 32], [2, 50, 24], [4, 25, 9], [1, 134, 108], [2, 67, 43], [2, 33, 15, 2, 34, 16], [2, 33, 11, 2, 34, 12], [2, 86, 68], [4, 43, 27], [4, 43, 19], [4, 43, 15], [2, 98, 78], [4, 49, 31], [2, 32, 14, 4, 33, 15], [4, 39, 13, 1, 40, 14], [2, 121, 97], [2, 60, 38, 2, 61, 39], [4, 40, 18, 2, 41, 19], [4, 40, 14, 2, 41, 15], [2, 146, 116], [3, 58, 36, 2, 59, 37], [4, 36, 16, 4, 37, 17], [4, 36, 12, 4, 37, 13], [2, 86, 68, 2, 87, 69], [4, 69, 43, 1, 70, 44], [6, 43, 19, 2, 44, 20], [6, 43, 15, 2, 44, 16], [4, 101, 81], [1, 80, 50, 4, 81, 51], [4, 50, 22, 4, 51, 23], [3, 36, 12, 8, 37, 13], [2, 116, 92, 2, 117, 93], [6, 58, 36, 2, 59, 37], [4, 46, 20, 6, 47, 21], [7, 42, 14, 4, 43, 15], [4, 133, 107], [8, 59, 37, 1, 60, 38], [8, 44, 20, 4, 45, 21], [12, 33, 11, 4, 34, 12], [3, 145, 115, 1, 146, 116], [4, 64, 40, 5, 65, 41], [11, 36, 16, 5, 37, 17], [11, 36, 12, 5, 37, 13], [5, 109, 87, 1, 110, 88], [5, 65, 41, 5, 66, 42], [5, 54, 24, 7, 55, 25], [11, 36, 12, 7, 37, 13], [5, 122, 98, 1, 123, 99], [7, 73, 45, 3, 74, 46], [15, 43, 19, 2, 44, 20], [3, 45, 15, 13, 46, 16], [1, 135, 107, 5, 136, 108], [10, 74, 46, 1, 75, 47], [1, 50, 22, 15, 51, 23], [2, 42, 14, 17, 43, 15], [5, 150, 120, 1, 151, 121], [9, 69, 43, 4, 70, 44], [17, 50, 22, 1, 51, 23], [2, 42, 14, 19, 43, 15], [3, 141, 113, 4, 142, 114], [3, 70, 44, 11, 71, 45], [17, 47, 21, 4, 48, 22], [9, 39, 13, 16, 40, 14], [3, 135, 107, 5, 136, 108], [3, 67, 41, 13, 68, 42], [15, 54, 24, 5, 55, 25], [15, 43, 15, 10, 44, 16], [4, 144, 116, 4, 145, 117], [17, 68, 42], [17, 50, 22, 6, 51, 23], [19, 46, 16, 6, 47, 17], [2, 139, 111, 7, 140, 112], [17, 74, 46], [7, 54, 24, 16, 55, 25], [34, 37, 13], [4, 151, 121, 5, 152, 122], [4, 75, 47, 14, 76, 48], [11, 54, 24, 14, 55, 25], [16, 45, 15, 14, 46, 16], [6, 147, 117, 4, 148, 118], [6, 73, 45, 14, 74, 46], [11, 54, 24, 16, 55, 25], [30, 46, 16, 2, 47, 17], [8, 132, 106, 4, 133, 107], [8, 75, 47, 13, 76, 48], [7, 54, 24, 22, 55, 25], [22, 45, 15, 13, 46, 16], [10, 142, 114, 2, 143, 115], [19, 74, 46, 4, 75, 47], [28, 50, 22, 6, 51, 23], [33, 46, 16, 4, 47, 17], [8, 152, 122, 4, 153, 123], [22, 73, 45, 3, 74, 46], [8, 53, 23, 26, 54, 24], [12, 45, 15, 28, 46, 16], [3, 147, 117, 10, 148, 118], [3, 73, 45, 23, 74, 46], [4, 54, 24, 31, 55, 25], [11, 45, 15, 31, 46, 16], [7, 146, 116, 7, 147, 117], [21, 73, 45, 7, 74, 46], [1, 53, 23, 37, 54, 24], [19, 45, 15, 26, 46, 16], [5, 145, 115, 10, 146, 116], [19, 75, 47, 10, 76, 48], [15, 54, 24, 25, 55, 25], [23, 45, 15, 25, 46, 16], [13, 145, 115, 3, 146, 116], [2, 74, 46, 29, 75, 47], [42, 54, 24, 1, 55, 25], [23, 45, 15, 28, 46, 16], [17, 145, 115], [10, 74, 46, 23, 75, 47], [10, 54, 24, 35, 55, 25], [19, 45, 15, 35, 46, 16], [17, 145, 115, 1, 146, 116], [14, 74, 46, 21, 75, 47], [29, 54, 24, 19, 55, 25], [11, 45, 15, 46, 46, 16], [13, 145, 115, 6, 146, 116], [14, 74, 46, 23, 75, 47], [44, 54, 24, 7, 55, 25], [59, 46, 16, 1, 47, 17], [12, 151, 121, 7, 152, 122], [12, 75, 47, 26, 76, 48], [39, 54, 24, 14, 55, 25], [22, 45, 15, 41, 46, 16], [6, 151, 121, 14, 152, 122], [6, 75, 47, 34, 76, 48], [46, 54, 24, 10, 55, 25], [2, 45, 15, 64, 46, 16], [17, 152, 122, 4, 153, 123], [29, 74, 46, 14, 75, 47], [49, 54, 24, 10, 55, 25], [24, 45, 15, 46, 46, 16], [4, 152, 122, 18, 153, 123], [13, 74, 46, 32, 75, 47], [48, 54, 24, 14, 55, 25], [42, 45, 15, 32, 46, 16], [20, 147, 117, 4, 148, 118], [40, 75, 47, 7, 76, 48], [43, 54, 24, 22, 55, 25], [10, 45, 15, 67, 46, 16], [19, 148, 118, 6, 149, 119], [18, 75, 47, 31, 76, 48], [34, 54, 24, 34, 55, 25], [20, 45, 15, 61, 46, 16]],
         getRSBlocks: function(typeNumber, errorCorrectLevel) {
           let rsBlock = QRRSBlock.getRsBlockTable(typeNumber, errorCorrectLevel);
           if (!rsBlock) throw new Error("bad rs block @ typeNumber:" + typeNumber + "/errorCorrectLevel:" + errorCorrectLevel);
@@ -1381,14 +1370,18 @@
       };
 
       const QRUtil = {
-        PATTERN_POSITION_TABLE: [
-          [], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34],
-          [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50]
-        ],
+        PATTERN_POSITION_TABLE: [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50], [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66], [6, 26, 48, 70], [6, 26, 50, 74], [6, 30, 54, 78], [6, 30, 56, 82], [6, 30, 58, 86], [6, 34, 62, 90], [6, 28, 50, 72, 94], [6, 26, 50, 74, 98], [6, 30, 54, 78, 102], [6, 28, 54, 80, 106], [6, 32, 58, 84, 110], [6, 30, 58, 86, 114], [6, 34, 62, 90, 118], [6, 26, 50, 74, 98, 122], [6, 30, 54, 78, 102, 126], [6, 26, 52, 78, 104, 130], [6, 30, 56, 82, 108, 134], [6, 34, 60, 86, 112, 138], [6, 30, 58, 86, 114, 142], [6, 34, 62, 90, 118, 146], [6, 30, 54, 78, 102, 126, 150], [6, 24, 50, 76, 102, 128, 154], [6, 28, 54, 80, 106, 132, 158], [6, 32, 58, 84, 110, 136, 162], [6, 26, 54, 82, 110, 138, 166], [6, 30, 58, 86, 114, 142, 170]],
         G15: (1 << 10) | (1 << 8) | (1 << 5) | (1 << 4) | (1 << 2) | (1 << 1) | (1 << 0),
         G18: (1 << 12) | (1 << 11) | (1 << 10) | (1 << 9) | (1 << 8) | (1 << 5) | (1 << 2) | (1 << 0),
         G15_MASK: (1 << 14) | (1 << 12) | (1 << 10) | (1 << 4) | (1 << 1),
-        getBCHTypeInfo: function(data) {
+                getBCHTypeNumber: function(data) {
+          let d = data << 12;
+          while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18) >= 0) {
+            d ^= (QRUtil.G18 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G18)));
+          }
+          return (data << 12) | d;
+        },
+getBCHTypeInfo: function(data) {
           let d = data << 10;
           while (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15) >= 0) {
             d ^= (QRUtil.G15 << (QRUtil.getBCHDigit(d) - QRUtil.getBCHDigit(QRUtil.G15)));
@@ -2764,7 +2757,7 @@
         if (val && !/^https?:\/\//i.test(val)) val = 'https://' + val;
         result = val || 'https://google.com';
       } else if (type === 'text') {
-        result = document.getElementById('textInput').value.trim() || 'SPVM3 Local QR Code Studio';
+        result = document.getElementById('textInput').value.trim() || 'Local QR Code Studio';
       } else if (type === 'wifi') {
         let ssid = document.getElementById('wifiSsid').value.trim() || 'MyNetwork';
         let auth = document.getElementById('wifiAuth').value;

@@ -1,4 +1,4 @@
-#Local QR Code Studio · Advanced Designer
+# Local QR Code Studio · Advanced Designer
 
 An advanced, feature-rich offline QR code design studio with a web interface. It runs completely on your local computer, requires zero internet access, and offers professional-grade templates, festive occasion frames, custom shapes, gradients, and brand logos.
 
@@ -87,7 +87,7 @@ Interactive accordion selector with customizable text, frame color, and text col
    ```
    dist\LocalQRStudio.exe
    ```
-3. Run `SPVM3LocalQRStudio.exe` directly on any Windows PC without needing Python installed!
+3. Run `LocalQRStudio.exe` directly on any Windows PC without needing Python installed!
 
 ---
 
